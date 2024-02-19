@@ -1,0 +1,122 @@
+body {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+}
+
+*, ::before, ::after {
+    box-sizing: inherit;
+}
+
+:root {
+    --grid-size: 80dvw;
+}
+
+#portrait-screen {
+    visibility: hidden;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    width: 100dvw;
+    height: 100dvh;
+    background-color: black;
+    color: white;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+#grid {
+    visibility: visible;
+    display: grid;
+    width: var(--grid-size);
+    height: var(--grid-size);
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    margin-left: auto;
+    margin-right: auto;
+    justify-items: center;
+}
+
+.grid-square {
+    display: grid;
+    grid-template-rows: 60% 20% 20%;
+    border: 1px solid black;
+    width: 100%;
+    height: 100%;
+}
+
+.square-image {
+    grid-column: 1;
+    grid-row: 1 /span 2;
+    width: 100%;
+    height: 90%;
+}
+
+.square-number {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0.5rem;
+    text-align: right;
+}
+
+.square-button {
+    grid-column: 1;
+    grid-row: 1;
+    margin-top: 3rem;
+    justify-self: center;
+    align-self: center;
+    width: 90%;
+    font-size: 1em;
+}
+
+.square-name {
+    grid-row: 3;
+    text-align: center;
+    padding: .2rem;
+    background-color: white;
+}
+
+#description-container {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.description {
+    display: inline-block;
+    padding: .5rem;
+    border: 1px solid black;
+    margin: .25rem;
+}
+
+#emblem {
+    width: 100%;
+    justify-self: center;
+    padding: 1rem;
+}
+
+.active {
+    background-color: forestgreen;
+    color: white;
+}
+
+.correct, .correct div {
+    background-color: forestgreen;
+    color: white;
+}
+
+@media screen and (orientation: portrait) {
+    #portrait-screen {
+        visibility: visible;
+    }
+
+    #grid {
+        visibility: hidden;
+    }
+}
+
+@media print {
+    .square-button {
+        visibility: hidden;
+    }
+}
