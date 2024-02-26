@@ -44,7 +44,7 @@ class Square {
                         const active = document.querySelector(".active");
                         ding.play();
                         if (active) active.remove();
-                        if (!localStorage.getItem(this.name)) {
+                        if (!localStorage.getItem(this.name + " matched")) {
                             name.classList.add("correct");
                             localStorage.setItem(this.name + " matched", "true");
                         };
